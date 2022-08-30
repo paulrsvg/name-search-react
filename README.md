@@ -4,6 +4,7 @@
 - If there are any issues running the backend (server.js), there is some mock data you can call from an api (https://jsonplaceholder.typicode.com/users) , or from a json file directly in the project (mock-data.json)
 
 ## Current Functionality:
+- Directions: After cloning the project, `npm install` , and `npm run dev` to start the frontend, `npm run start` for the backend
 - Autocompletion based on search string
 
 ## Future Work: 
