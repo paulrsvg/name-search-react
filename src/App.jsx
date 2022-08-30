@@ -4,7 +4,6 @@ import { useQuery } from 'react-query'
 import Data from './assets/mock-data.json'
 import './App.css'
 
-
 function App() {
   const [query, setQuery] = useState("")
   const [APIData, setAPIData] = useState([])
@@ -18,7 +17,6 @@ function App() {
   })
 
   // const fetchResults = async () => {
- 
   //   // const res = await fetch("http://localhost:3000/users");
   //   return axios.get("https://jsonplaceholder.typicode.com/users")
   //   // return res.json();
@@ -36,7 +34,6 @@ function App() {
       if (query === '') {}
       if (user.name.toLowerCase().includes(query.toLowerCase())) {return user}
     }) 
-    
   }
 
   const filterResults = (APIData, query) => {
@@ -55,17 +52,14 @@ function App() {
 
   return (
     <div className="App">
-      
       <h1>User Search</h1>
       <div className="card">
-
         <input 
           placeholder="Enter a Name" 
-          // onChange = { (e) => searchNames(e)}
           onChange={e => setQuery(e.target.value)}
           >
         </input>
-        {/* <button>Search</button> */}
+        {/* <button onClick={e=> searchNames(e)}">Search</button> */}
 
         {/* {isLoading && <p>Loading data..</p>}
       {error && <p>Error occurred: : {error.message}</p>} */}
@@ -76,12 +70,11 @@ function App() {
           else if (user.name.toLowerCase().includes(query.toLowerCase())) {return user}
           // else{ return <p>name not found</p>}
         }).map((user) => (
-          // <p key = {user.id}>{user.name} is in {user.address.city}</p> to test w/ external api
+          // uncomment below to use with APIData to test w/ external api
+          // <p key = {user.id}>{user.name} is in {user.address.city}</p> 
           <p key = {user.id}>{user.name} is in {user.location}</p>
         ))
       }
-        
-        
       </div>
     </div>
   )
