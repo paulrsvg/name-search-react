@@ -12,13 +12,6 @@ const mongoose = require('mongoose');
 // connect to the database
 mongoose.connect('mongodb://localhost:27017/users', {
   useNewUrlParser: true
-}, 
-(err, client) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  db = client.db("Users")
 });
 
 // Create a scheme for users: name, location
