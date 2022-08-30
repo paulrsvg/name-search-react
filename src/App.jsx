@@ -9,10 +9,6 @@ function App() {
   const [query, setQuery] = useState("")
   const [APIData, setAPIData] = useState([])
 
-  
-
-
-
   useEffect(() => {
     //axios.get(`https://localhost:3000/users`) replace w/ mongo db address or smth
     axios.get(`https://jsonplaceholder.typicode.com/users`)
@@ -28,7 +24,7 @@ function App() {
   //   // return res.json();
   // };
 
-  //using the hook
+  //using the react query hook
   // const { data, error, isError, isLoading, refetch } = useQuery("users", fetchResults, {
   //   // enabled: false, //disabled query from running automatically on component mount
   // });
@@ -47,8 +43,10 @@ function App() {
     if (!query) {
       return users
     }
-            if (query === '') {return <p>hi there</p>} //leave blank on 1st 
-            else if (user.name.toLowerCase().includes(query.toLowerCase())) {return <p key = {user.id}>{user.name}</p>}
+            if (query === '') {return ''} //leave blank when query string is empty
+            else if (user.name.toLowerCase().includes(query.toLowerCase())) {
+              return <p key = {user.id}>{user.name} is in {user.location}</p>
+            }
             else{ return <p>name not found</p>}
   }
 
